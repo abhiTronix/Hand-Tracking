@@ -31,6 +31,7 @@ def make_video(outvid, images=None, fps=30, size=None,
     return vid
 
 VIDEO_SAVE_DIR = '/content/videos'
+VIDEO_DIR = '/content/drive'
 images = list(glob.iglob(os.path.join(VIDEO_SAVE_DIR, '*.*')))
 # Sort the images by name index.
 images = sorted(images, key=lambda x: float(os.path.split(x)[1][:-3]))
