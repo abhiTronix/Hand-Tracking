@@ -34,12 +34,13 @@ if __name__ == '__main__':
         # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
         frame = vs.read()
         framez = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        h, w = frame[:2]
 
         # actual detection
         boxes, scores = detector_utils.detect_objects(framez, detection_graph, sess)
 
         # draw bounding boxes
-        detector_utils.draw_box_on_image(num_hands_detect, args["score_thresh"], scores, boxes, im_width, im_height,
+        detector_utils.draw_box_on_image(num_hands_detect, args["score_thresh"], scores, boxes, w, h,
                                          frame)
         name = '{0}.jpg'.format(frame_count + i - batch_size)
         name = os.path.join('/content/video', name)
