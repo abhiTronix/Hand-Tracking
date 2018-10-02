@@ -25,8 +25,6 @@ if __name__ == '__main__':
     # cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
     # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
     frame_count += 1
-
-    im_width, im_height = (cap.get(3), cap.get(4))
     # max number of hands we want to detect/track
     num_hands_detect = 2
 
