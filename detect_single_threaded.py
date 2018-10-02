@@ -12,13 +12,10 @@ frame_count = 0
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-fps', '--fps', dest='fps', type=int,
-                        default=20, help='Show FPS on detection/display visualization')
-    parser.add_argument("-o", "--output", required=True, help="path to output video file")
-    parser.add_argument("-c", "--codec", type=str, default="MJPG", help="codec of output video")
-    args = parser.parse_args()
+    parser.add_argument("-v", "--video", type=str,help="path to input video file")
+    args = vars(parser.parse_args())
 
-    vs = VideoStream('/content/test.MP4').start()
+    vs = VideoStream(args["video"]).start()
     time.sleep(2.0)
     # cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
     # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
