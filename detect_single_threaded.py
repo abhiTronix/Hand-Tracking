@@ -30,6 +30,8 @@ if __name__ == '__main__':
     while True:
         # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
         frame = vs.read()
+        if frame is None:
+            break
         framez = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         h, w = frame.shape[:2]
         print(h,":",w)
@@ -41,9 +43,7 @@ if __name__ == '__main__':
         detector_utils.draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, w, h,
                                          frame)
         namez = '{0}.jpg'.format(frame_count)
-        name = '/content/video/'+namez
+        name = '/content/videos/'+namez
         cv2.imwrite(name, frame)
-        if frame is None:
-            break
     cv2.destroyAllWindows()
     vs.stop()
