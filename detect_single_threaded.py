@@ -22,13 +22,12 @@ if __name__ == '__main__':
     time.sleep(2.0)
     # cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
     # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
-    frame_count += 1
     # max number of hands we want to detect/track
     num_hands_detect = 2
     score_thresh = 0.5
 
     while True:
-        # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+        frame_count += 1
         frame = vs.read()
         if frame is None:
             break
@@ -43,6 +42,7 @@ if __name__ == '__main__':
         detector_utils.draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, w, h,
                                          frame)
         namez = '{0}.jpg'.format(frame_count)
+        
         name = '/content/videos/'+namez
         cv2.imwrite(name, frame)
     cv2.destroyAllWindows()
