@@ -31,7 +31,7 @@ if __name__ == '__main__':
         # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
         frame = vs.read()
         framez = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        h, w = frame[:2]
+        h, w = frame.shape[:2]
         print(h,":",w)
 
         # actual detection
