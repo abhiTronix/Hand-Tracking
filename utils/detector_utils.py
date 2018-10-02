@@ -19,9 +19,9 @@ _score_thresh = 0.20
 
 MODEL_NAME = 'hand_inference_graph'
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
-PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
+PATH_TO_CKPT = '/content/drive/squeezenet/models/research/object_detection/legacy/hand_detector_graph' + '/frozen_inference_graph.pb'
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = os.path.join(MODEL_NAME, 'hand_label_map.pbtxt')
+PATH_TO_LABELS = '/content/drive/squeezenet/models/research/object_detection/legacy/data'+'/hand_detector.pbtxt'
 
 NUM_CLASSES = 1
 # load label map
