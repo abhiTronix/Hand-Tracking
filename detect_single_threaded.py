@@ -12,8 +12,6 @@ frame_count = 0
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-sth', '--scorethreshold', dest='score_thresh', type=float,
-                        default=0.5, help='Score threshold for displaying bounding boxes')
     parser.add_argument('-fps', '--fps', dest='fps', type=int,
                         default=20, help='Show FPS on detection/display visualization')
     parser.add_argument("-o", "--output", required=True, help="path to output video file")
@@ -27,6 +25,7 @@ if __name__ == '__main__':
     frame_count += 1
     # max number of hands we want to detect/track
     num_hands_detect = 2
+    score_thresh = 0.5
 
     while True:
         # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -38,7 +37,7 @@ if __name__ == '__main__':
         boxes, scores = detector_utils.detect_objects(framez, detection_graph, sess)
 
         # draw bounding boxes
-        detector_utils.draw_box_on_image(num_hands_detect, args["score_thresh"], scores, boxes, w, h,
+        detector_utils.draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, w, h,
                                          frame)
         name = '{0}.jpg'.format(frame_count + i - batch_size)
         name = os.path.join('/content/video', name)
