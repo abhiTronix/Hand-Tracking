@@ -5,6 +5,7 @@ import argparse
 from imutils.video import VideoStream
 import imutils
 import time
+import os
 
 detection_graph, sess = detector_utils.load_inference_graph()
 frame_count = 0
