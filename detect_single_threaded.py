@@ -69,6 +69,8 @@ if __name__ == '__main__':
             out.write(image_np)
 
             if cv2.waitKey(25) & 0xFF == ord('q'):
+                cap.release()
+                out.release()
                 cv2.destroyAllWindows()
                 break
         else:
