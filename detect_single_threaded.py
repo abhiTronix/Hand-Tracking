@@ -5,7 +5,6 @@ import argparse
 from imutils.video import VideoStream
 import imutils
 import time
-import os
 
 detection_graph, sess = detector_utils.load_inference_graph()
 frame_count = 0
@@ -41,8 +40,8 @@ if __name__ == '__main__':
         # draw bounding boxes
         detector_utils.draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, w, h,
                                          frame)
-        name = '{0}.jpg'.format(frame_count)
-        name = os.path.join('/content/video', name)
+        namez = '{0}.jpg'.format(frame_count)
+        name = '/content/video/'+namez
         cv2.imwrite(name, frame)
         if frame is None:
             break
