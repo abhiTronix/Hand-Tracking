@@ -32,6 +32,8 @@ if __name__ == '__main__':
         frame = vs.read()
         framez = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         h, w = frame[:2]
+        print h
+        print w
 
         # actual detection
         boxes, scores = detector_utils.detect_objects(framez, detection_graph, sess)
@@ -39,7 +41,7 @@ if __name__ == '__main__':
         # draw bounding boxes
         detector_utils.draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, w, h,
                                          frame)
-        name = '{0}.jpg'.format(frame_count + i - batch_size)
+        name = '{0}.jpg'.format(frame_count)
         name = os.path.join('/content/video', name)
         cv2.imwrite(name, frame)
         if frame is None:
