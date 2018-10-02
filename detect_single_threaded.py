@@ -32,8 +32,7 @@ if __name__ == '__main__':
         frame = vs.read()
         framez = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         h, w = frame[:2]
-        print h
-        print w
+        print(h,":",w)
 
         # actual detection
         boxes, scores = detector_utils.detect_objects(framez, detection_graph, sess)
