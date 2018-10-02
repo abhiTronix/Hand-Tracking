@@ -20,7 +20,7 @@ if __name__ == '__main__':
     parser.add_argument("-c", "--codec", type=str, default="MJPG", help="codec of output video")
     args = parser.parse_args()
 
-    cap = VideoStream('/content/test.MP4').start()
+    vs = VideoStream('/content/test.MP4').start()
     time.sleep(2.0)
     # cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
     # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
@@ -47,4 +47,3 @@ if __name__ == '__main__':
             break
     cv2.destroyAllWindows()
     vs.stop()
-    cap.release()
